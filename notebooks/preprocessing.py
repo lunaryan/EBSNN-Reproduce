@@ -23,6 +23,7 @@ import numpy as np
 import traceback
 import glob
 from sklearn.model_selection import train_test_split
+from bitstring import BitArray
 
 # def calculate_alpha(counter, mode='normal'):
 #     if mode == 'normal':
@@ -39,21 +40,35 @@ from sklearn.model_selection import train_test_split
 def eprint(*args, **kargs):
     print(*args, file=sys.stderr, **kargs)
 
-def process_buffer(buffer, max_length=1500):
-    """
-    TODO: detailed processing of packet data (read the paper)
+def process_buffer(buf, max_length=1500):
+    eth = dpkt.ethernet.Ethernet(buf)
+    if not isinstance(eth.data, dpkt.ip.IP):
+        return None
+    ip = eth.data
+    if not isinstance(ip.data, dpkt.tcp.TCP):
+        return None
+    tcp = ip.data
+    payload = tcp.data
+    ## read the packet in binary format and transform it into a sequence of 8-bit integers in the range of [0~255]
+    int_list=list(buf)
+    ##The 8-bit integer sequence of the packet is then split into the Ethernet header, IPv4 header, the TCP/UDP header,and the payload subsequences.
+    c = BitArray(buf)
+    W=len(c.bin)
+    eth_header=c[:112]
+    U=c[116:120].uint
+    IPV4_header=c[112:112+32*U]
+    V=c[176+32*U:180+32*U].uint #for TCP
+    TCP_header=c[112+32*U:112+32*(U+V)]
+    payload=c[112+32*(U+V):]
 
-    DPKT docs: https://kbandla.github.io/dpkt/
-    """
-    try:
-        eth = dpkt.ethernet.Ethernet(buffer)
-        if not isinstance(eth.data, dpkt.ip.IP):
-            return None
-        ip = eth.data
-        if not isinstance(ip.data, dpkt.tcp.TCP):
-            return None
-        tcp = ip.data
-        payload = tcp.data
+    eth_header=int_list[:14]
+    IPV4_header=int_list[14:14+4*U]
+    TCP_header=int_list[14+4*U:14+4*(U+V)]
+    payload=int_list[14+4*(U+V):]
+    N=4 #4 bytes form a segment
+
+    ## the segment generator preprocesses and breaks these subsequences into byte segments with fixed-length N,
+
     except Exception as e:
         print("[error] {}".format(e))
 
@@ -62,11 +77,11 @@ def process_buffer(buffer, max_length=1500):
 
 
 def identify_flow(pfile):
-    #Each flow is identified with a 4-tuple: (src_ip, dst_ip, src_port, dst_port) and within a SYN-FIN session
     f=open(pfile, 'rb')
     start_tcp=False
     end_tcp=False
     flows=[]
+    flow=[]
     pcap=dpkt.pcap.Reader(f)
     for ts, buf in pcap:
         try:
@@ -78,31 +93,20 @@ def identify_flow(pfile):
             if not isinstance(tcp, dpkt.tcp.TCP):
                 continue
             if tcp.flags==0x02: #SYN
-                start_tcp=True
-                src=ip.src
-                dst=ip.dst
-                sport=tcp.sport
-                dport=tcp.dport
-                id=(src,dst,sport,dport)
-                flow=dict()
-                flow[id]=[]
-            if tcp.flags==0x01: #FIN
-                start_tcp=False
-                flows.append(flow) #in case the same id tuple
-            if start_tcp and ip.src==src and ip.dst==dst and tcp.sport==sport and tcp.dport==dport:
-                flow[id].append(eth)
+                if len(flow):
+                    flows.append(flow)
+                flow=[]
+                continue
+            if len(flow)>20:
+                continue
+            if len(tcp.data)==0:
+                continue
+            flow.append(buf)
         except:
             eprint('ERROR identifying flows',)# eth, tcp)
             traceback.print_exc()
 
     f.close()
-    len_stat=[]
-    if len(flows)==0:
-        return flows
-    for flow in flows:
-        flow=list(flow.values())[0]
-        len_stat.append(len(flow))
-    print('max length of flow in this file:', max(len_stat))
     return flows
 
 
@@ -133,9 +137,23 @@ def collect_flows(data_dir):
                 eprint('cannot identify flows from file', f)
                 traceback.print_exc()
 
-    print(len(all_flows), [fl for fl in all_flows.items()])
+    print(len(all_flows), [len(fl) for fl in all_flows.values()])
+    return all_flows
 
-
+def extract_flow_feature(flows):
+    #flows in the form: list of flow list
+    #including flows extracted from all pcap files in a APP/web class
+    feature=[]
+    for flow in flows:
+        #a piece of flow containing eth list, with length at most 20
+        length=[]
+        packets=[]
+        for bi, buf in enumerate(flow):
+            eth = dpkt.ethernet.Ethernet(buf)
+            length.append(eth.data.len)
+            packet_feature=process_buffer(buf)
+            packets.append(packet_feature)
+            #TODO: unfinished
 
 
 
@@ -168,14 +186,26 @@ def read_class(class_name, data_dir):
 
 
 
-def read_dataset(data_dir):
+def read_dataset(data_dir, is_flow=True):
     "dataset `d1` or `d2`"
 
     features = []
     labels = []
     label2id = {}
     id2label = {}
-    #TODO: suitable for d2
+    if is_flow:
+        all_flows=collect_flows(data_dir)
+        for i, (label, flows) in enumerate(all_flows.items()):
+            if len(flows)==0:
+                continue
+            label2id[label] = i
+            id2label[i] = label
+            flow_feature=extract_flow_feature(flows)
+            features.extend(flow_feature)
+            labels.extend([i]*len(flow_feature))
+
+        return features, labels, label2id, id2label
+
     for i, class_name in enumerate(os.listdir(data_dir)):
         label2id[class_name] = i
         id2label[i] = class_name
