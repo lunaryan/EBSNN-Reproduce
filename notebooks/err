@@ -1,0 +1,1320 @@
+cannot identify flows from file ../data/d1/aimchat/extra_AIMchat1.pcap
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 131, in collect_flows
+    flow_f=identify_flow(f)
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 70, in identify_flow
+    pcap=dpkt.pcap.Reader(f)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/pcap.py", line 328, in __init__
+    raise ValueError('invalid tcpdump header')
+ValueError: invalid tcpdump header
+cannot identify flows from file ../data/d1/aimchat/extra_AIMchat2.pcap
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 131, in collect_flows
+    flow_f=identify_flow(f)
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 70, in identify_flow
+    pcap=dpkt.pcap.Reader(f)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/pcap.py", line 328, in __init__
+    raise ValueError('invalid tcpdump header')
+ValueError: invalid tcpdump header
+cannot identify flows from file ../data/d1/skype/extra_skype_audio3.pcap
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 131, in collect_flows
+    flow_f=identify_flow(f)
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 70, in identify_flow
+    pcap=dpkt.pcap.Reader(f)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/pcap.py", line 328, in __init__
+    raise ValueError('invalid tcpdump header')
+ValueError: invalid tcpdump header
+cannot identify flows from file ../data/d1/skype/unprocessed_skype_video1b.pcap
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 131, in collect_flows
+    flow_f=identify_flow(f)
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 70, in identify_flow
+    pcap=dpkt.pcap.Reader(f)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/pcap.py", line 328, in __init__
+    raise ValueError('invalid tcpdump header')
+ValueError: invalid tcpdump header
+ERROR identifying flows
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 80, in identify_flow
+    print(tcp.flags)
+KeyboardInterrupt
+ERROR identifying flows
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 73, in identify_flow
+    eth=dpkt.ethernet.Ethernet(buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 84, in __init__
+    dpkt.Packet.__init__(self, *args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 144, in unpack
+    self._unpack_data(self.data)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 134, in _unpack_data
+    self.data = self._typesw[eth_type](buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ip.py", line 79, in __init__
+    super(IP, self).__init__(*args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ip.py", line 124, in unpack
+    self.data = self._protosw[self.p](buf) if self.offset == 0 else buf
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/tcp.py", line 97, in unpack
+    dpkt.Packet.unpack(self, buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 345, in unpack
+    struct.unpack(self.__hdr_fmt__, buf[:self.__hdr_len__])):
+KeyboardInterrupt
+ERROR identifying flows
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 73, in identify_flow
+    eth=dpkt.ethernet.Ethernet(buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 84, in __init__
+    dpkt.Packet.__init__(self, *args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 140, in unpack
+    dpkt.Packet.unpack(self, buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 345, in unpack
+    struct.unpack(self.__hdr_fmt__, buf[:self.__hdr_len__])):
+KeyboardInterrupt
+ERROR identifying flows
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 73, in identify_flow
+    eth=dpkt.ethernet.Ethernet(buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 84, in __init__
+    dpkt.Packet.__init__(self, *args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 140, in unpack
+    dpkt.Packet.unpack(self, buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 346, in unpack
+    setattr(self, k, v)
+KeyboardInterrupt
+cannot identify flows from file ../data/d1/sinauc/SinaUC__overall.pcap
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 131, in collect_flows
+    flow_f=identify_flow(f)
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 71, in identify_flow
+    for ts, buf in pcap:
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/pcap.py", line 398, in __iter__
+    buf = self.__f.read(hdr.caplen)
+KeyboardInterrupt
+ERROR identifying flows
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 73, in identify_flow
+    eth=dpkt.ethernet.Ethernet(buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 84, in __init__
+    dpkt.Packet.__init__(self, *args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 140, in unpack
+    dpkt.Packet.unpack(self, buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 346, in unpack
+    setattr(self, k, v)
+KeyboardInterrupt
+ERROR identifying flows
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 73, in identify_flow
+    eth=dpkt.ethernet.Ethernet(buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 84, in __init__
+    dpkt.Packet.__init__(self, *args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 140, in unpack
+    dpkt.Packet.unpack(self, buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 345, in unpack
+    struct.unpack(self.__hdr_fmt__, buf[:self.__hdr_len__])):
+KeyboardInterrupt
+ERROR identifying flows
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 73, in identify_flow
+    eth=dpkt.ethernet.Ethernet(buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 84, in __init__
+    dpkt.Packet.__init__(self, *args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 140, in unpack
+    dpkt.Packet.unpack(self, buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 346, in unpack
+    setattr(self, k, v)
+KeyboardInterrupt
+ERROR identifying flows
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 73, in identify_flow
+    eth=dpkt.ethernet.Ethernet(buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 84, in __init__
+    dpkt.Packet.__init__(self, *args, **kwargs)
+KeyboardInterrupt
+ERROR identifying flows
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 80, in identify_flow
+    print(tcp.flags)
+KeyboardInterrupt
+cannot identify flows from file ../data/d1/baidu/extra_baidu__vedio.pcap
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 131, in collect_flows
+    flow_f=identify_flow(f)
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 71, in identify_flow
+    for ts, buf in pcap:
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/pcap.py", line 398, in __iter__
+    buf = self.__f.read(hdr.caplen)
+KeyboardInterrupt
+ERROR identifying flows
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 73, in identify_flow
+    eth=dpkt.ethernet.Ethernet(buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 84, in __init__
+    dpkt.Packet.__init__(self, *args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 144, in unpack
+    self._unpack_data(self.data)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 134, in _unpack_data
+    self.data = self._typesw[eth_type](buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ip.py", line 79, in __init__
+    super(IP, self).__init__(*args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ip.py", line 124, in unpack
+    self.data = self._protosw[self.p](buf) if self.offset == 0 else buf
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/tcp.py", line 97, in unpack
+    dpkt.Packet.unpack(self, buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 346, in unpack
+    setattr(self, k, v)
+KeyboardInterrupt
+ERROR identifying flows
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 73, in identify_flow
+    eth=dpkt.ethernet.Ethernet(buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 84, in __init__
+    dpkt.Packet.__init__(self, *args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 144, in unpack
+    self._unpack_data(self.data)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 134, in _unpack_data
+    self.data = self._typesw[eth_type](buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ip.py", line 79, in __init__
+    super(IP, self).__init__(*args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+KeyboardInterrupt
+ERROR identifying flows
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 73, in identify_flow
+    eth=dpkt.ethernet.Ethernet(buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 84, in __init__
+    dpkt.Packet.__init__(self, *args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 144, in unpack
+    self._unpack_data(self.data)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 134, in _unpack_data
+    self.data = self._typesw[eth_type](buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ip.py", line 79, in __init__
+    super(IP, self).__init__(*args, **kwargs)
+KeyboardInterrupt
+cannot identify flows from file ../data/d1/baidu/baidu__overall.pcap
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 131, in collect_flows
+    flow_f=identify_flow(f)
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 71, in identify_flow
+    for ts, buf in pcap:
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/pcap.py", line 398, in __iter__
+    buf = self.__f.read(hdr.caplen)
+KeyboardInterrupt
+ERROR identifying flows
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 73, in identify_flow
+    eth=dpkt.ethernet.Ethernet(buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 84, in __init__
+    dpkt.Packet.__init__(self, *args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 144, in unpack
+    self._unpack_data(self.data)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 134, in _unpack_data
+    self.data = self._typesw[eth_type](buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ip.py", line 79, in __init__
+    super(IP, self).__init__(*args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ip.py", line 125, in unpack
+    setattr(self, self.data.__class__.__name__.lower(), self.data)
+KeyboardInterrupt
+cannot identify flows from file ../data/d1/thunder/ThunderPlatform__bt.pcap
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 131, in collect_flows
+    flow_f=identify_flow(f)
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 71, in identify_flow
+    for ts, buf in pcap:
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/pcap.py", line 397, in __iter__
+    hdr = self.__ph(buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 345, in unpack
+    struct.unpack(self.__hdr_fmt__, buf[:self.__hdr_len__])):
+KeyboardInterrupt
+ERROR identifying flows
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 73, in identify_flow
+    eth=dpkt.ethernet.Ethernet(buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 84, in __init__
+    dpkt.Packet.__init__(self, *args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 144, in unpack
+    self._unpack_data(self.data)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 134, in _unpack_data
+    self.data = self._typesw[eth_type](buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ip.py", line 79, in __init__
+    super(IP, self).__init__(*args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ip.py", line 124, in unpack
+    self.data = self._protosw[self.p](buf) if self.offset == 0 else buf
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 84, in getter_func
+    def getter_func(self):
+KeyboardInterrupt
+ERROR identifying flows
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 73, in identify_flow
+    eth=dpkt.ethernet.Ethernet(buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 84, in __init__
+    dpkt.Packet.__init__(self, *args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 144, in unpack
+    self._unpack_data(self.data)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 134, in _unpack_data
+    self.data = self._typesw[eth_type](buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ip.py", line 79, in __init__
+    super(IP, self).__init__(*args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ip.py", line 118, in unpack
+    self.opts = buf[self.__hdr_len__:self.__hdr_len__ + ol]
+KeyboardInterrupt
+ERROR identifying flows
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 73, in identify_flow
+    eth=dpkt.ethernet.Ethernet(buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 84, in __init__
+    dpkt.Packet.__init__(self, *args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 144, in unpack
+    self._unpack_data(self.data)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 134, in _unpack_data
+    self.data = self._typesw[eth_type](buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ip.py", line 79, in __init__
+    super(IP, self).__init__(*args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ip.py", line 114, in unpack
+    dpkt.Packet.unpack(self, buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 345, in unpack
+    struct.unpack(self.__hdr_fmt__, buf[:self.__hdr_len__])):
+KeyboardInterrupt
+ERROR identifying flows
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 80, in identify_flow
+    print(tcp.flags)
+KeyboardInterrupt
+ERROR identifying flows
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 73, in identify_flow
+    eth=dpkt.ethernet.Ethernet(buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 87, in __init__
+    if isstr(self.data) or isinstance(self.data, bytes):
+KeyboardInterrupt
+ERROR identifying flows
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 73, in identify_flow
+    eth=dpkt.ethernet.Ethernet(buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 84, in __init__
+    dpkt.Packet.__init__(self, *args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 144, in unpack
+    self._unpack_data(self.data)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 134, in _unpack_data
+    self.data = self._typesw[eth_type](buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ip.py", line 79, in __init__
+    super(IP, self).__init__(*args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ip.py", line 114, in unpack
+    dpkt.Packet.unpack(self, buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 346, in unpack
+    setattr(self, k, v)
+KeyboardInterrupt
+ERROR identifying flows
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 73, in identify_flow
+    eth=dpkt.ethernet.Ethernet(buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 84, in __init__
+    dpkt.Packet.__init__(self, *args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 144, in unpack
+    self._unpack_data(self.data)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 134, in _unpack_data
+    self.data = self._typesw[eth_type](buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ip.py", line 79, in __init__
+    super(IP, self).__init__(*args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ip.py", line 125, in unpack
+    setattr(self, self.data.__class__.__name__.lower(), self.data)
+KeyboardInterrupt
+ERROR identifying flows
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 74, in identify_flow
+    ip=eth.data
+KeyboardInterrupt
+ERROR identifying flows
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 73, in identify_flow
+    eth=dpkt.ethernet.Ethernet(buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 84, in __init__
+    dpkt.Packet.__init__(self, *args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 144, in unpack
+    self._unpack_data(self.data)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 134, in _unpack_data
+    self.data = self._typesw[eth_type](buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ip.py", line 79, in __init__
+    super(IP, self).__init__(*args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ip.py", line 124, in unpack
+    self.data = self._protosw[self.p](buf) if self.offset == 0 else buf
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/tcp.py", line 98, in unpack
+    ol = ((self._off_flags >> 12) << 2) - self.__hdr_len__
+KeyboardInterrupt
+ERROR identifying flows
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 73, in identify_flow
+    eth=dpkt.ethernet.Ethernet(buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 84, in __init__
+    dpkt.Packet.__init__(self, *args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 158, in __init__
+    if args:
+KeyboardInterrupt
+ERROR identifying flows
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 73, in identify_flow
+    eth=dpkt.ethernet.Ethernet(buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 84, in __init__
+    dpkt.Packet.__init__(self, *args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 144, in unpack
+    self._unpack_data(self.data)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 134, in _unpack_data
+    self.data = self._typesw[eth_type](buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ip.py", line 79, in __init__
+    super(IP, self).__init__(*args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ip.py", line 124, in unpack
+    self.data = self._protosw[self.p](buf) if self.offset == 0 else buf
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 175, in __init__
+    self._pack_hdr = partial(struct.pack, self.__hdr_fmt__)
+KeyboardInterrupt
+ERROR identifying flows
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 73, in identify_flow
+    eth=dpkt.ethernet.Ethernet(buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 84, in __init__
+    dpkt.Packet.__init__(self, *args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 144, in unpack
+    self._unpack_data(self.data)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 134, in _unpack_data
+    self.data = self._typesw[eth_type](buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ip.py", line 79, in __init__
+    super(IP, self).__init__(*args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ip.py", line 125, in unpack
+    setattr(self, self.data.__class__.__name__.lower(), self.data)
+KeyboardInterrupt
+ERROR identifying flows
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 75, in identify_flow
+    if not isinstance(ip, dpkt.ip.IP):
+KeyboardInterrupt
+ERROR identifying flows
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 73, in identify_flow
+    eth=dpkt.ethernet.Ethernet(buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 84, in __init__
+    dpkt.Packet.__init__(self, *args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 144, in unpack
+    self._unpack_data(self.data)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 134, in _unpack_data
+    self.data = self._typesw[eth_type](buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ip.py", line 79, in __init__
+    super(IP, self).__init__(*args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ip.py", line 124, in unpack
+    self.data = self._protosw[self.p](buf) if self.offset == 0 else buf
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 175, in __init__
+    self._pack_hdr = partial(struct.pack, self.__hdr_fmt__)
+KeyboardInterrupt
+ERROR identifying flows
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 75, in identify_flow
+    if not isinstance(ip, dpkt.ip.IP):
+KeyboardInterrupt
+ERROR identifying flows
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 73, in identify_flow
+    eth=dpkt.ethernet.Ethernet(buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 84, in __init__
+    dpkt.Packet.__init__(self, *args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 140, in unpack
+    dpkt.Packet.unpack(self, buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 347, in unpack
+    self.data = buf[self.__hdr_len__:]
+KeyboardInterrupt
+ERROR identifying flows
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 73, in identify_flow
+    eth=dpkt.ethernet.Ethernet(buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 84, in __init__
+    dpkt.Packet.__init__(self, *args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 144, in unpack
+    self._unpack_data(self.data)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 134, in _unpack_data
+    self.data = self._typesw[eth_type](buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ip.py", line 79, in __init__
+    super(IP, self).__init__(*args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ip.py", line 125, in unpack
+    setattr(self, self.data.__class__.__name__.lower(), self.data)
+KeyboardInterrupt
+ERROR identifying flows
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 73, in identify_flow
+    eth=dpkt.ethernet.Ethernet(buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 84, in __init__
+    dpkt.Packet.__init__(self, *args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 144, in unpack
+    self._unpack_data(self.data)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 134, in _unpack_data
+    self.data = self._typesw[eth_type](buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ip.py", line 79, in __init__
+    super(IP, self).__init__(*args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ip.py", line 114, in unpack
+    dpkt.Packet.unpack(self, buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 342, in unpack
+    def unpack(self, buf):
+KeyboardInterrupt
+ERROR identifying flows
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 73, in identify_flow
+    eth=dpkt.ethernet.Ethernet(buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 84, in __init__
+    dpkt.Packet.__init__(self, *args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 140, in unpack
+    dpkt.Packet.unpack(self, buf)
+KeyboardInterrupt
+ERROR identifying flows
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 73, in identify_flow
+    eth=dpkt.ethernet.Ethernet(buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 84, in __init__
+    dpkt.Packet.__init__(self, *args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 144, in unpack
+    self._unpack_data(self.data)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 134, in _unpack_data
+    self.data = self._typesw[eth_type](buf)
+KeyboardInterrupt
+ERROR identifying flows
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 73, in identify_flow
+    eth=dpkt.ethernet.Ethernet(buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 84, in __init__
+    dpkt.Packet.__init__(self, *args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 144, in unpack
+    self._unpack_data(self.data)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 134, in _unpack_data
+    self.data = self._typesw[eth_type](buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ip.py", line 79, in __init__
+    super(IP, self).__init__(*args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ip.py", line 114, in unpack
+    dpkt.Packet.unpack(self, buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 345, in unpack
+    struct.unpack(self.__hdr_fmt__, buf[:self.__hdr_len__])):
+KeyboardInterrupt
+ERROR identifying flows
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 80, in identify_flow
+    print(tcp.flags)
+KeyboardInterrupt
+cannot identify flows from file ../data/d1/vimeo/vimeo4.pcap
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 131, in collect_flows
+    flow_f=identify_flow(f)
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 71, in identify_flow
+    for ts, buf in pcap:
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/pcap.py", line 399, in __iter__
+    yield (hdr.tv_sec + (hdr.tv_usec / self._divisor), buf)
+KeyboardInterrupt
+ERROR identifying flows
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 73, in identify_flow
+    eth=dpkt.ethernet.Ethernet(buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 84, in __init__
+    dpkt.Packet.__init__(self, *args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 144, in unpack
+    self._unpack_data(self.data)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 134, in _unpack_data
+    self.data = self._typesw[eth_type](buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ip.py", line 79, in __init__
+    super(IP, self).__init__(*args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ip.py", line 124, in unpack
+    self.data = self._protosw[self.p](buf) if self.offset == 0 else buf
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 346, in unpack
+    setattr(self, k, v)
+KeyboardInterrupt
+ERROR identifying flows
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 73, in identify_flow
+    eth=dpkt.ethernet.Ethernet(buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 84, in __init__
+    dpkt.Packet.__init__(self, *args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 144, in unpack
+    self._unpack_data(self.data)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 134, in _unpack_data
+    self.data = self._typesw[eth_type](buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ip.py", line 79, in __init__
+    super(IP, self).__init__(*args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ip.py", line 114, in unpack
+    dpkt.Packet.unpack(self, buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 345, in unpack
+    struct.unpack(self.__hdr_fmt__, buf[:self.__hdr_len__])):
+KeyboardInterrupt
+ERROR identifying flows
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 73, in identify_flow
+    eth=dpkt.ethernet.Ethernet(buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 86, in __init__
+    if self.data:
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ip.py", line 87, in __len__
+    return self.__hdr_len__ + len(self.opts) + len(self.data)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 178, in __len__
+    return self.__hdr_len__ + len(self.data)
+KeyboardInterrupt
+ERROR identifying flows
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 73, in identify_flow
+    eth=dpkt.ethernet.Ethernet(buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 86, in __init__
+    if self.data:
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ip.py", line 87, in __len__
+    return self.__hdr_len__ + len(self.opts) + len(self.data)
+KeyboardInterrupt
+ERROR identifying flows
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 73, in identify_flow
+    eth=dpkt.ethernet.Ethernet(buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 84, in __init__
+    dpkt.Packet.__init__(self, *args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 144, in unpack
+    self._unpack_data(self.data)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 134, in _unpack_data
+    self.data = self._typesw[eth_type](buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ip.py", line 79, in __init__
+    super(IP, self).__init__(*args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ip.py", line 114, in unpack
+    dpkt.Packet.unpack(self, buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 345, in unpack
+    struct.unpack(self.__hdr_fmt__, buf[:self.__hdr_len__])):
+KeyboardInterrupt
+ERROR identifying flows
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 73, in identify_flow
+    eth=dpkt.ethernet.Ethernet(buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 84, in __init__
+    dpkt.Packet.__init__(self, *args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 144, in unpack
+    self._unpack_data(self.data)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 134, in _unpack_data
+    self.data = self._typesw[eth_type](buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ip.py", line 79, in __init__
+    super(IP, self).__init__(*args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ip.py", line 118, in unpack
+    self.opts = buf[self.__hdr_len__:self.__hdr_len__ + ol]
+KeyboardInterrupt
+ERROR identifying flows
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 73, in identify_flow
+    eth=dpkt.ethernet.Ethernet(buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 84, in __init__
+    dpkt.Packet.__init__(self, *args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 144, in unpack
+    self._unpack_data(self.data)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 134, in _unpack_data
+    self.data = self._typesw[eth_type](buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ip.py", line 79, in __init__
+    super(IP, self).__init__(*args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 175, in __init__
+    self._pack_hdr = partial(struct.pack, self.__hdr_fmt__)
+KeyboardInterrupt
+ERROR identifying flows
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 73, in identify_flow
+    eth=dpkt.ethernet.Ethernet(buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 84, in __init__
+    dpkt.Packet.__init__(self, *args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 144, in unpack
+    self._unpack_data(self.data)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 134, in _unpack_data
+    self.data = self._typesw[eth_type](buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ip.py", line 79, in __init__
+    super(IP, self).__init__(*args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ip.py", line 124, in unpack
+    self.data = self._protosw[self.p](buf) if self.offset == 0 else buf
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 345, in unpack
+    struct.unpack(self.__hdr_fmt__, buf[:self.__hdr_len__])):
+KeyboardInterrupt
+ERROR identifying flows
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 73, in identify_flow
+    eth=dpkt.ethernet.Ethernet(buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 82, in __init__
+    def __init__(self, *args, **kwargs):
+KeyboardInterrupt
+ERROR identifying flows
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 73, in identify_flow
+    eth=dpkt.ethernet.Ethernet(buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 84, in __init__
+    dpkt.Packet.__init__(self, *args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 143, in unpack
+    self._next_type = self.type
+KeyboardInterrupt
+ERROR identifying flows
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 73, in identify_flow
+    eth=dpkt.ethernet.Ethernet(buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 84, in __init__
+    dpkt.Packet.__init__(self, *args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 144, in unpack
+    self._unpack_data(self.data)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 134, in _unpack_data
+    self.data = self._typesw[eth_type](buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ip.py", line 79, in __init__
+    super(IP, self).__init__(*args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ip.py", line 125, in unpack
+    setattr(self, self.data.__class__.__name__.lower(), self.data)
+KeyboardInterrupt
+cannot identify flows from file ../data/d1/voipbuster/extra_vpn_voipbuster1a.pcap
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 131, in collect_flows
+    flow_f=identify_flow(f)
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 71, in identify_flow
+    for ts, buf in pcap:
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/pcap.py", line 397, in __iter__
+    hdr = self.__ph(buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 346, in unpack
+    setattr(self, k, v)
+KeyboardInterrupt
+cannot identify flows from file ../data/d1/gmail/extra_gmailchat3.pcap
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 131, in collect_flows
+    flow_f=identify_flow(f)
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 70, in identify_flow
+    pcap=dpkt.pcap.Reader(f)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/pcap.py", line 328, in __init__
+    raise ValueError('invalid tcpdump header')
+ValueError: invalid tcpdump header
+cannot identify flows from file ../data/d1/gmail/gmailchat1.pcap
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 131, in collect_flows
+    flow_f=identify_flow(f)
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 70, in identify_flow
+    pcap=dpkt.pcap.Reader(f)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/pcap.py", line 328, in __init__
+    raise ValueError('invalid tcpdump header')
+ValueError: invalid tcpdump header
+cannot identify flows from file ../data/d1/gmail/extra_gmailchat2.pcap
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 131, in collect_flows
+    flow_f=identify_flow(f)
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 70, in identify_flow
+    pcap=dpkt.pcap.Reader(f)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/pcap.py", line 328, in __init__
+    raise ValueError('invalid tcpdump header')
+ValueError: invalid tcpdump header
+ERROR identifying flows
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 80, in identify_flow
+    print(tcp.flags)
+KeyboardInterrupt
+ERROR identifying flows
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 80, in identify_flow
+    print(tcp.flags)
+KeyboardInterrupt
+ERROR identifying flows
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 80, in identify_flow
+    print(tcp.flags)
+KeyboardInterrupt
+ERROR identifying flows
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 73, in identify_flow
+    eth=dpkt.ethernet.Ethernet(buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 84, in __init__
+    dpkt.Packet.__init__(self, *args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 144, in unpack
+    self._unpack_data(self.data)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 134, in _unpack_data
+    self.data = self._typesw[eth_type](buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ip.py", line 79, in __init__
+    super(IP, self).__init__(*args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ip.py", line 114, in unpack
+    dpkt.Packet.unpack(self, buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 346, in unpack
+    setattr(self, k, v)
+KeyboardInterrupt
+ERROR identifying flows
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 73, in identify_flow
+    eth=dpkt.ethernet.Ethernet(buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 84, in __init__
+    dpkt.Packet.__init__(self, *args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 144, in unpack
+    self._unpack_data(self.data)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 135, in _unpack_data
+    setattr(self, self.data.__class__.__name__.lower(), self.data)
+KeyboardInterrupt
+ERROR identifying flows
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 73, in identify_flow
+    eth=dpkt.ethernet.Ethernet(buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 84, in __init__
+    dpkt.Packet.__init__(self, *args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 144, in unpack
+    self._unpack_data(self.data)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 134, in _unpack_data
+    self.data = self._typesw[eth_type](buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ip.py", line 79, in __init__
+    super(IP, self).__init__(*args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 157, in __init__
+    self.data = b''
+KeyboardInterrupt
+ERROR identifying flows
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 73, in identify_flow
+    eth=dpkt.ethernet.Ethernet(buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 84, in __init__
+    dpkt.Packet.__init__(self, *args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 144, in unpack
+    self._unpack_data(self.data)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 134, in _unpack_data
+    self.data = self._typesw[eth_type](buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ip.py", line 79, in __init__
+    super(IP, self).__init__(*args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ip.py", line 124, in unpack
+    self.data = self._protosw[self.p](buf) if self.offset == 0 else buf
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/tcp.py", line 97, in unpack
+    dpkt.Packet.unpack(self, buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 345, in unpack
+    struct.unpack(self.__hdr_fmt__, buf[:self.__hdr_len__])):
+KeyboardInterrupt
+ERROR identifying flows
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 73, in identify_flow
+    eth=dpkt.ethernet.Ethernet(buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 84, in __init__
+    dpkt.Packet.__init__(self, *args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 144, in unpack
+    self._unpack_data(self.data)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 134, in _unpack_data
+    self.data = self._typesw[eth_type](buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ip.py", line 79, in __init__
+    super(IP, self).__init__(*args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ip.py", line 124, in unpack
+    self.data = self._protosw[self.p](buf) if self.offset == 0 else buf
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/tcp.py", line 97, in unpack
+    dpkt.Packet.unpack(self, buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 345, in unpack
+    struct.unpack(self.__hdr_fmt__, buf[:self.__hdr_len__])):
+KeyboardInterrupt
+ERROR identifying flows
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 73, in identify_flow
+    eth=dpkt.ethernet.Ethernet(buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 84, in __init__
+    dpkt.Packet.__init__(self, *args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 144, in unpack
+    self._unpack_data(self.data)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 134, in _unpack_data
+    self.data = self._typesw[eth_type](buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ip.py", line 79, in __init__
+    super(IP, self).__init__(*args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ip.py", line 114, in unpack
+    dpkt.Packet.unpack(self, buf)
+KeyboardInterrupt
+ERROR identifying flows
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 73, in identify_flow
+    eth=dpkt.ethernet.Ethernet(buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 84, in __init__
+    dpkt.Packet.__init__(self, *args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 175, in __init__
+    self._pack_hdr = partial(struct.pack, self.__hdr_fmt__)
+KeyboardInterrupt
+ERROR identifying flows
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 73, in identify_flow
+    eth=dpkt.ethernet.Ethernet(buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 82, in __init__
+    def __init__(self, *args, **kwargs):
+KeyboardInterrupt
+ERROR identifying flows
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 80, in identify_flow
+    print(tcp.flags)
+KeyboardInterrupt
+ERROR identifying flows
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 73, in identify_flow
+    eth=dpkt.ethernet.Ethernet(buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 84, in __init__
+    dpkt.Packet.__init__(self, *args, **kwargs)
+KeyboardInterrupt
+ERROR identifying flows
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 78, in identify_flow
+    if not isinstance(tcp, dpkt.tcp.TCP):
+KeyboardInterrupt
+ERROR identifying flows
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 73, in identify_flow
+    eth=dpkt.ethernet.Ethernet(buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 84, in __init__
+    dpkt.Packet.__init__(self, *args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 144, in unpack
+    self._unpack_data(self.data)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 134, in _unpack_data
+    self.data = self._typesw[eth_type](buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ip.py", line 79, in __init__
+    super(IP, self).__init__(*args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ip.py", line 120, in unpack
+    buf = buf[self.__hdr_len__ + ol:self.len]
+KeyboardInterrupt
+ERROR identifying flows
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 73, in identify_flow
+    eth=dpkt.ethernet.Ethernet(buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 84, in __init__
+    dpkt.Packet.__init__(self, *args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 144, in unpack
+    self._unpack_data(self.data)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 134, in _unpack_data
+    self.data = self._typesw[eth_type](buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ip.py", line 79, in __init__
+    super(IP, self).__init__(*args, **kwargs)
+KeyboardInterrupt
+ERROR identifying flows
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 73, in identify_flow
+    eth=dpkt.ethernet.Ethernet(buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 84, in __init__
+    dpkt.Packet.__init__(self, *args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 144, in unpack
+    self._unpack_data(self.data)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ethernet.py", line 134, in _unpack_data
+    self.data = self._typesw[eth_type](buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ip.py", line 79, in __init__
+    super(IP, self).__init__(*args, **kwargs)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 160, in __init__
+    self.unpack(args[0])
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/ip.py", line 114, in unpack
+    dpkt.Packet.unpack(self, buf)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/dpkt.py", line 346, in unpack
+    setattr(self, k, v)
+KeyboardInterrupt
+ERROR identifying flows
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 80, in identify_flow
+    print(tcp.flags)
+KeyboardInterrupt
+cannot identify flows from file ../data/d1/facebook/facebook_video2b.pcap
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 131, in collect_flows
+    flow_f=identify_flow(f)
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 70, in identify_flow
+    pcap=dpkt.pcap.Reader(f)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/pcap.py", line 328, in __init__
+    raise ValueError('invalid tcpdump header')
+ValueError: invalid tcpdump header
+cannot identify flows from file ../data/d2/qqmail_2.pcap
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 119, in collect_flows
+    flow_f=identify_flow(f)
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 70, in identify_flow
+    pcap=dpkt.pcap.Reader(f)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/pcap.py", line 328, in __init__
+    raise ValueError('invalid tcpdump header')
+ValueError: invalid tcpdump header
+cannot identify flows from file ../data/d2/bing_2.pcap
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 119, in collect_flows
+    flow_f=identify_flow(f)
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 70, in identify_flow
+    pcap=dpkt.pcap.Reader(f)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/pcap.py", line 328, in __init__
+    raise ValueError('invalid tcpdump header')
+ValueError: invalid tcpdump header
+cannot identify flows from file ../data/d2/JD_1.pcap
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 119, in collect_flows
+    flow_f=identify_flow(f)
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 70, in identify_flow
+    pcap=dpkt.pcap.Reader(f)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/pcap.py", line 328, in __init__
+    raise ValueError('invalid tcpdump header')
+ValueError: invalid tcpdump header
+cannot identify flows from file ../data/d2/amazon_1.pcap
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 119, in collect_flows
+    flow_f=identify_flow(f)
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 70, in identify_flow
+    pcap=dpkt.pcap.Reader(f)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/pcap.py", line 328, in __init__
+    raise ValueError('invalid tcpdump header')
+ValueError: invalid tcpdump header
+cannot identify flows from file ../data/d2/qqmail_1.pcap
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 119, in collect_flows
+    flow_f=identify_flow(f)
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 70, in identify_flow
+    pcap=dpkt.pcap.Reader(f)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/pcap.py", line 328, in __init__
+    raise ValueError('invalid tcpdump header')
+ValueError: invalid tcpdump header
+cannot identify flows from file ../data/d2/baidu_1.pcap
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 119, in collect_flows
+    flow_f=identify_flow(f)
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 70, in identify_flow
+    pcap=dpkt.pcap.Reader(f)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/pcap.py", line 328, in __init__
+    raise ValueError('invalid tcpdump header')
+ValueError: invalid tcpdump header
+cannot identify flows from file ../data/d2/google_2.pcap
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 119, in collect_flows
+    flow_f=identify_flow(f)
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 70, in identify_flow
+    pcap=dpkt.pcap.Reader(f)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/pcap.py", line 328, in __init__
+    raise ValueError('invalid tcpdump header')
+ValueError: invalid tcpdump header
+cannot identify flows from file ../data/d2/twitter_1.pcap
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 119, in collect_flows
+    flow_f=identify_flow(f)
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 70, in identify_flow
+    pcap=dpkt.pcap.Reader(f)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/pcap.py", line 328, in __init__
+    raise ValueError('invalid tcpdump header')
+ValueError: invalid tcpdump header
+cannot identify flows from file ../data/d2/instagram_1.pcap
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 119, in collect_flows
+    flow_f=identify_flow(f)
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 70, in identify_flow
+    pcap=dpkt.pcap.Reader(f)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/pcap.py", line 328, in __init__
+    raise ValueError('invalid tcpdump header')
+ValueError: invalid tcpdump header
+cannot identify flows from file ../data/d2/imdb_1.pcap
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 119, in collect_flows
+    flow_f=identify_flow(f)
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 70, in identify_flow
+    pcap=dpkt.pcap.Reader(f)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/pcap.py", line 328, in __init__
+    raise ValueError('invalid tcpdump header')
+ValueError: invalid tcpdump header
+cannot identify flows from file ../data/d2/douban_1.pcap
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 119, in collect_flows
+    flow_f=identify_flow(f)
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 70, in identify_flow
+    pcap=dpkt.pcap.Reader(f)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/pcap.py", line 328, in __init__
+    raise ValueError('invalid tcpdump header')
+ValueError: invalid tcpdump header
+cannot identify flows from file ../data/d2/NeteaseMusic_1.pcap
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 119, in collect_flows
+    flow_f=identify_flow(f)
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 70, in identify_flow
+    pcap=dpkt.pcap.Reader(f)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/pcap.py", line 328, in __init__
+    raise ValueError('invalid tcpdump header')
+ValueError: invalid tcpdump header
+cannot identify flows from file ../data/d2/tieba_1.pcap
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 119, in collect_flows
+    flow_f=identify_flow(f)
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 70, in identify_flow
+    pcap=dpkt.pcap.Reader(f)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/pcap.py", line 328, in __init__
+    raise ValueError('invalid tcpdump header')
+ValueError: invalid tcpdump header
+cannot identify flows from file ../data/d2/taobao_1.pcap
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 119, in collect_flows
+    flow_f=identify_flow(f)
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 70, in identify_flow
+    pcap=dpkt.pcap.Reader(f)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/pcap.py", line 328, in __init__
+    raise ValueError('invalid tcpdump header')
+ValueError: invalid tcpdump header
+cannot identify flows from file ../data/d2/baidu_2.pcap
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 119, in collect_flows
+    flow_f=identify_flow(f)
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 70, in identify_flow
+    pcap=dpkt.pcap.Reader(f)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/pcap.py", line 328, in __init__
+    raise ValueError('invalid tcpdump header')
+ValueError: invalid tcpdump header
+cannot identify flows from file ../data/d2/youku_1.pcap
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 119, in collect_flows
+    flow_f=identify_flow(f)
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 70, in identify_flow
+    pcap=dpkt.pcap.Reader(f)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/pcap.py", line 328, in __init__
+    raise ValueError('invalid tcpdump header')
+ValueError: invalid tcpdump header
+cannot identify flows from file ../data/d2/TED_2.pcap
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 119, in collect_flows
+    flow_f=identify_flow(f)
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 70, in identify_flow
+    pcap=dpkt.pcap.Reader(f)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/pcap.py", line 328, in __init__
+    raise ValueError('invalid tcpdump header')
+ValueError: invalid tcpdump header
+cannot identify flows from file ../data/d2/facebook_2.pcap
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 119, in collect_flows
+    flow_f=identify_flow(f)
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 70, in identify_flow
+    pcap=dpkt.pcap.Reader(f)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/pcap.py", line 328, in __init__
+    raise ValueError('invalid tcpdump header')
+ValueError: invalid tcpdump header
+cannot identify flows from file ../data/d2/reddit_2.pcap
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 119, in collect_flows
+    flow_f=identify_flow(f)
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 70, in identify_flow
+    pcap=dpkt.pcap.Reader(f)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/pcap.py", line 328, in __init__
+    raise ValueError('invalid tcpdump header')
+ValueError: invalid tcpdump header
+cannot identify flows from file ../data/d2/weibo_1.pcap
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 119, in collect_flows
+    flow_f=identify_flow(f)
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 70, in identify_flow
+    pcap=dpkt.pcap.Reader(f)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/pcap.py", line 328, in __init__
+    raise ValueError('invalid tcpdump header')
+ValueError: invalid tcpdump header
+cannot identify flows from file ../data/d2/instagram_2.pcap
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 119, in collect_flows
+    flow_f=identify_flow(f)
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 70, in identify_flow
+    pcap=dpkt.pcap.Reader(f)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/pcap.py", line 328, in __init__
+    raise ValueError('invalid tcpdump header')
+ValueError: invalid tcpdump header
+cannot identify flows from file ../data/d2/imdb_2.pcap
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 119, in collect_flows
+    flow_f=identify_flow(f)
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 70, in identify_flow
+    pcap=dpkt.pcap.Reader(f)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/pcap.py", line 328, in __init__
+    raise ValueError('invalid tcpdump header')
+ValueError: invalid tcpdump header
+cannot identify flows from file ../data/d2/facebook_1.pcap
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 119, in collect_flows
+    flow_f=identify_flow(f)
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 70, in identify_flow
+    pcap=dpkt.pcap.Reader(f)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/pcap.py", line 328, in __init__
+    raise ValueError('invalid tcpdump header')
+ValueError: invalid tcpdump header
+cannot identify flows from file ../data/d2/google_1.pcap
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 119, in collect_flows
+    flow_f=identify_flow(f)
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 70, in identify_flow
+    pcap=dpkt.pcap.Reader(f)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/pcap.py", line 328, in __init__
+    raise ValueError('invalid tcpdump header')
+ValueError: invalid tcpdump header
+cannot identify flows from file ../data/d2/youtube_1.pcap
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 119, in collect_flows
+    flow_f=identify_flow(f)
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 70, in identify_flow
+    pcap=dpkt.pcap.Reader(f)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/pcap.py", line 328, in __init__
+    raise ValueError('invalid tcpdump header')
+ValueError: invalid tcpdump header
+cannot identify flows from file ../data/d2/bing_1.pcap
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 119, in collect_flows
+    flow_f=identify_flow(f)
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 70, in identify_flow
+    pcap=dpkt.pcap.Reader(f)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/pcap.py", line 328, in __init__
+    raise ValueError('invalid tcpdump header')
+ValueError: invalid tcpdump header
+cannot identify flows from file ../data/d2/TED_1.pcap
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 119, in collect_flows
+    flow_f=identify_flow(f)
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 70, in identify_flow
+    pcap=dpkt.pcap.Reader(f)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/pcap.py", line 328, in __init__
+    raise ValueError('invalid tcpdump header')
+ValueError: invalid tcpdump header
+cannot identify flows from file ../data/d2/NeteaseMusic_2.pcap
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 119, in collect_flows
+    flow_f=identify_flow(f)
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 70, in identify_flow
+    pcap=dpkt.pcap.Reader(f)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/pcap.py", line 328, in __init__
+    raise ValueError('invalid tcpdump header')
+ValueError: invalid tcpdump header
+cannot identify flows from file ../data/d2/reddit_1.pcap
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 119, in collect_flows
+    flow_f=identify_flow(f)
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 70, in identify_flow
+    pcap=dpkt.pcap.Reader(f)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/pcap.py", line 328, in __init__
+    raise ValueError('invalid tcpdump header')
+ValueError: invalid tcpdump header
+cannot identify flows from file ../data/d2/iqiyi_1.pcap
+Traceback (most recent call last):
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 119, in collect_flows
+    flow_f=identify_flow(f)
+  File "/home/yan390/cs536/EBSNN/EBSNN-Reproduce/notebooks/preprocessing.py", line 70, in identify_flow
+    pcap=dpkt.pcap.Reader(f)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/pcap.py", line 328, in __init__
+    raise ValueError('invalid tcpdump header')
+ValueError: invalid tcpdump header
