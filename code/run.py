@@ -198,6 +198,7 @@ def evaluate(model, args, test=False):
     # p_log('DEBUG: y_hat: {} (shape: {})'.format(y_hat, y_hat.shape))
     # p_log('DEBUG: y: {} (shape: {})'.format(y, y.shape))
     accuracy = accuracy_score(y, y_hat)
+    print(accuracy)
     # p_log('DEBUG inference time per batch:',
     #       str(sum(time_logs) / len(time_logs)))
 
@@ -302,18 +303,18 @@ def main():
         'EBSNN_LSTM': EBSNN_LSTM, 'EBSNN_GRU': EBSNN_GRU
     }[args.model]
     log_writer = SummaryWriter()
+    model = MODEL_CLASS(args.num_classes, args.embedding_dim, args.device,
+                  bidirectional=not args.no_bidirectional,
+                  segment_len=args.segment_len,
+                  dropout_rate=args.dropout)
+    model.to(args.device)
 
     if args.do_train:
-        model = MODEL_CLASS(args.num_classes, args.embedding_dim, args.device,
-                      bidirectional=not args.no_bidirectional,
-                      segment_len=args.segment_len,
-                      dropout_rate=args.dropout)
-        model.to(args.device)
 
         train(model, args, log_writer)
 
     if args.do_eval:
-        model = torch.load('../save/teacher/checkpoint-best-epoch_21-acc_0.9858.pt')
+        model.load_state_dict( torch.load('../save/teacher/checkpoint-best-epoch_21-acc_0.9858.pt'))
         evaluate(model, args)
 
     log_writer.close()

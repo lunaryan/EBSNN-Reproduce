@@ -117,6 +117,8 @@ class FlowDataset(torch.utils.data.Dataset):
         "TODO: modify this part to support length"
         # x in the form (length, pkt_features), where length is a list of len num_pkt, pkt_features is a nested list with shape (num_pkt, len_each_pkt_feature)
         x = []
+        while len(self.features[index][1])<=self.use_pkt:
+            index += 1
         for pkt_feature in self.features[index][1][:self.use_pkt]:
             pkt_feature = pkt_feature[:self.max_length]         # truncating
             if len(pkt_feature) < self.max_length:    # padding
