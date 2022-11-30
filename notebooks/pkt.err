@@ -1,0 +1,30 @@
+Traceback (most recent call last):
+  File "preprocessing.py", line 182, in read_class
+    pcap = dpkt.pcap.Reader(f)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/pcap.py", line 328, in __init__
+    raise ValueError('invalid tcpdump header')
+ValueError: invalid tcpdump header
+Traceback (most recent call last):
+  File "preprocessing.py", line 182, in read_class
+    pcap = dpkt.pcap.Reader(f)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/pcap.py", line 328, in __init__
+    raise ValueError('invalid tcpdump header')
+ValueError: invalid tcpdump header
+Traceback (most recent call last):
+  File "preprocessing.py", line 182, in read_class
+    pcap = dpkt.pcap.Reader(f)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/pcap.py", line 328, in __init__
+    raise ValueError('invalid tcpdump header')
+ValueError: invalid tcpdump header
+Traceback (most recent call last):
+  File "preprocessing.py", line 182, in read_class
+    pcap = dpkt.pcap.Reader(f)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/pcap.py", line 328, in __init__
+    raise ValueError('invalid tcpdump header')
+ValueError: invalid tcpdump header
+Traceback (most recent call last):
+  File "preprocessing.py", line 182, in read_class
+    pcap = dpkt.pcap.Reader(f)
+  File "/home/yan390/miniconda3/envs/py3.6/lib/python3.6/site-packages/dpkt/pcap.py", line 328, in __init__
+    raise ValueError('invalid tcpdump header')
+ValueError: invalid tcpdump header
