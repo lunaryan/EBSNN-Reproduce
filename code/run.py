@@ -10,7 +10,7 @@ from torch.utils.data import DataLoader, RandomSampler, SequentialSampler
 from math import ceil
 from time import time
 from sklearn.metrics import accuracy_score
-from data import Dataset
+from data import Dataset, PacketDataset, FlowDataset
 from utils import p_log, deal_results, set_log_file
 from model import EBSNN_GRU, EBSNN_LSTM, FocalLoss
 from torch.utils.tensorboard import SummaryWriter
@@ -26,11 +26,10 @@ logger.addHandler(ch)
 
 
 def train(model, args, log_writer):
-    
-    train_dataset = Dataset(args, 'train')
+    train_dataset = PacketDataset(args, 'train')
     train_sampler = RandomSampler(train_dataset)
-    train_dataloader = DataLoader(train_dataset, batch_size=args.batch_size, 
-                                    sampler=train_sampler, num_workers=2, 
+    train_dataloader = DataLoader(train_dataset, batch_size=args.batch_size,
+                                    sampler=train_sampler, num_workers=2,
                                     drop_last=True)
 
     optimizer = torch.optim.Adam(model.parameters(), lr=args.learning_rate)
@@ -57,7 +56,7 @@ def train(model, args, log_writer):
             y += batch_y.tolist()
             batch_X, batch_y = batch_X.to(args.device), batch_y.to(args.device)
             batch_X = batch_X.view(args.batch_size, -1, args.segment_len)    # requirement of the model
-            
+
             model.train()
             out = model(batch_X)
             loss = criterion(out, batch_y)
@@ -78,10 +77,10 @@ def train(model, args, log_writer):
             if (idx + 1) % args.logging_steps == 0:
                 # FIXME: inaccurate training loss
                 logger.info("step {}, train loss - {}, train acc - {}".format(
-                                        idx + 1, 
+                                        idx + 1,
                                         round(train_loss / (idx + 1), 4),
                                         round(train_acc / (idx + 1), 4)))
-        
+
         train_loss = train_loss / len(train_dataloader)
         train_acc = train_acc / len(train_dataloader)
 
@@ -111,7 +110,7 @@ def train(model, args, log_writer):
             p_log('Exception: {}'.format(e))
             traceback.print_exc()
             p_log('ignore exception, please fixme')
-        
+
         if eval_acc > best_results['acc']:
             best_results['acc'] = eval_acc
             best_results['epoch'] = epoch
@@ -119,27 +118,28 @@ def train(model, args, log_writer):
             model_best = model.state_dict(), eval_acc, epoch
         else:
             pass
-    
+
     torch.save(model.state_dict(), os.path.join(args.output_dir, 'checkpoint-last.pt'))
-    torch.save(model_best[0], 
+    torch.save(model_best[0],
         os.path.join(args.output_dir, 'checkpoint-best-epoch_{}-acc_{:.4f}.pt'.format(
                                                 model_best[2], model_best[1])))
-    
+
     log_writer.add_graph(model, input_to_model=batch_X)
     # log_writer.export_scalars_to_json(os.path.join(args.output_dir, "all_scalars.json"))
-    
+
 
 def evaluate(model, args, test=False):
-
-    # evaluate when training
-    eval_dataset = Dataset(args, 'val')
+    if args.flow:
+        eval_dataset = FlowDataset(args, 'val')
+    else:
+        eval_dataset = PacketDataset(args, 'val')
     eval_sampler = SequentialSampler(eval_dataset)
-    eval_dataloader = DataLoader(eval_dataset, batch_size=args.batch_size, 
+    eval_dataloader = DataLoader(eval_dataset, batch_size=args.batch_size,
                             sampler=eval_sampler, num_workers=2,
                             drop_last=True)
 
 
-    criterion = FocalLoss(args.num_classes, args.device, 
+    criterion = FocalLoss(args.num_classes, args.device,
                             eval_dataset.alpha, args.gamma, True)
     criterion.to(args.device)
 
@@ -153,12 +153,20 @@ def evaluate(model, args, test=False):
 
         batch_X = batch_X.to(args.device)
         batch_y = batch_y.to(args.device)
-        batch_X = batch_X.view(args.batch_size, -1, args.segment_len)    # requirement of the model
+        if args.flow:
+            batch_X = batch_X.view(args.first_k_packets, args.batch_size, -1, args.segment_len)
+        else:
+            batch_X = batch_X.view(args.batch_size, -1, args.segment_len)    # requirement of the model
 
         s_t = time()
         model.eval()
         with torch.no_grad():
-            out1 = model(batch_X)
+            if args.flow:
+                out1=[model(batch_X[i]) for i in range(args.first_k_packets)]
+                out1=torch.stack(out1)
+                out1=torch.mean(out1, dim=0) #use vote to decide final predicted label
+            else:
+                out1 = model(batch_X)
             time_logs.append(time() - s_t)
             # p_log('DEBUG: out1 in batch {}: {} (shape: {})'.format(out1, i, out1.shape))
             # the loss for flow classification when test is different to the one when train
@@ -202,7 +210,7 @@ def get_args():
 
     parser.add_argument('--gpu', type=int, default=0,
                         help='GPU to use [default: GPU 0]')
-    
+
     # model arguments
     parser.add_argument(
         '--model', default='EBSNN_LSTM',
@@ -210,7 +218,7 @@ def get_args():
     parser.add_argument('--embedding_dim', type=int, default=257,
                         help='embedding dimenstion [default 257]')
     parser.add_argument("--dropout", default=0.5, type=float)
-    
+
     # training arguments
     parser.add_argument(
         '--batch_size', type=int, default=32,
@@ -251,11 +259,11 @@ def get_args():
     parser.add_argument('--shuffle', action='store_true', help='if shuffle dataset')
     parser.add_argument('--no_bidirectional', action='store_true',
                         help='if bi-RNN')
-    parser.add_argument('--segment_len', type=int, default=8,
+    parser.add_argument('--segment_len', type=int, default=4,
                         help='the length of segment')
     parser.add_argument('--test_cycle', type=int, default=1,
                         help='test cycle')
-    
+
 
     parser.add_argument("--data_dir", type=str)
     parser.add_argument("--output_dir", type=str)
@@ -265,11 +273,11 @@ def get_args():
         default='log_20/log_train.txt',
         help='file name of log'
     )
-    
+
 
     # extra arguments
     parser.add_argument("--do_train", action='store_true')
-    parser.add_argument("--calculate_train_acc", action='store_true', 
+    parser.add_argument("--calculate_train_acc", action='store_true',
                         help='need to calculate acc in eval mode (slow)')
     parser.add_argument("--do_eval", action='store_true')
 
@@ -294,18 +302,20 @@ def main():
         'EBSNN_LSTM': EBSNN_LSTM, 'EBSNN_GRU': EBSNN_GRU
     }[args.model]
     log_writer = SummaryWriter()
-    model = MODEL_CLASS(args.num_classes, args.embedding_dim, args.device,
-                  bidirectional=not args.no_bidirectional,
-                  segment_len=args.segment_len,
-                  dropout_rate=args.dropout)
-    model.to(args.device)
-    
+
     if args.do_train:
+        model = MODEL_CLASS(args.num_classes, args.embedding_dim, args.device,
+                      bidirectional=not args.no_bidirectional,
+                      segment_len=args.segment_len,
+                      dropout_rate=args.dropout)
+        model.to(args.device)
+
         train(model, args, log_writer)
-    
+
     if args.do_eval:
+        model = torch.load('../save/teacher/checkpoint-best-epoch_21-acc_0.9858.pt')
         evaluate(model, args)
-    
+
     log_writer.close()
 
 

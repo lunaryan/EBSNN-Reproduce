@@ -38,17 +38,17 @@ def train_kd(model, teacher_model, args):
     Args:
         model: (torch.nn.Module) the neural network
         optimizer: (torch.optim) optimizer for parameters of model
-        dataloader: 
-        metrics: (dict) 
+        dataloader:
+        metrics: (dict)
         params: (Params) hyperparameters
     """
 
     dataset = PacketDataset(args, 'train')
     sampler = RandomSampler(dataset)
-    dataloader = DataLoader(dataset, batch_size=args.batch_size, 
-                            sampler=sampler, num_workers=2, 
+    dataloader = DataLoader(dataset, batch_size=args.batch_size,
+                            sampler=sampler, num_workers=2,
                             drop_last=True)
-    
+
     optimizer = torch.optim.Adam(model.parameters(), lr=args.learning_rate)
     criterion = KDLoss(args.kd_alpha, args.kd_temperature, args).to(args.device)
     criterion.to(args.device)
@@ -58,7 +58,7 @@ def train_kd(model, teacher_model, args):
     teacher_model.eval()
 
     best_results = {'acc': 0., 'epoch': 0, 'results': None}  # eval
-    
+
     for epoch in range(args.epochs):
 
         loss_avg = RunningAverage()
@@ -99,7 +99,7 @@ def train_kd(model, teacher_model, args):
                                         round(eval_loss, 4),
                                         round(eval_acc, 4)
                                     ))
-        
+
         class_reports = deal_results(*eval_results)
 
         # try:
@@ -115,7 +115,7 @@ def train_kd(model, teacher_model, args):
         #     p_log('Exception: {}'.format(e))
         #     traceback.print_exc()
         #     p_log('ignore exception, please fixme')
-        
+
         if eval_acc > best_results['acc']:
             best_results['acc'] = eval_acc
             best_results['epoch'] = epoch
@@ -123,9 +123,9 @@ def train_kd(model, teacher_model, args):
             model_best = model.state_dict(), eval_acc, epoch
         else:
             pass
-        
+
         torch.save(model.state_dict(), os.path.join(args.output_dir, 'checkpoint-last.pt'))
-        torch.save(model_best[0], 
+        torch.save(model_best[0],
             os.path.join(args.output_dir, 'checkpoint-best-epoch_{}-acc_{:.4f}.pt'.format(
                                                 model_best[2], model_best[1])))
 
@@ -138,14 +138,14 @@ def evaluate_kd(model, args, test=False):
         args.batch_size = 1
     else:
         eval_dataset = PacketDataset(args, 'val')
-    
+
     eval_sampler = SequentialSampler(eval_dataset)
-    eval_dataloader = DataLoader(eval_dataset, batch_size=args.batch_size, 
+    eval_dataloader = DataLoader(eval_dataset, batch_size=args.batch_size,
                             sampler=eval_sampler, num_workers=2,
                             drop_last=True)
 
 
-    criterion = FocalLoss(args.num_classes, args.device, 
+    criterion = FocalLoss(args.num_classes, args.device,
                             eval_dataset.alpha, args.gamma, True)
     criterion.to(args.device)
 
@@ -159,12 +159,20 @@ def evaluate_kd(model, args, test=False):
 
         batch_X = batch_X.to(args.device)
         batch_y = batch_y.to(args.device)
-        batch_X = batch_X.view(args.batch_size, -1, args.segment_len)    # requirement of the model
+        if args.flow:
+            batch_X = batch_X.view(args.first_k_packets, args.batch_size, -1, args.segment_len)
+        else:
+            batch_X = batch_X.view(args.batch_size, -1, args.segment_len)    # requirement of the model
 
         s_t = time()
         model.eval()
         with torch.no_grad():
-            out1 = model(batch_X)
+            if args.flow:
+                out1=[model(batch_X[i]) for i in range(args.first_k_packets)]
+                out1=torch.stack(out1)
+                out1=torch.mean(out1, dim=0) #use vote to decide final predicted label
+            else:
+                out1 = model(batch_X)
             time_logs.append(time() - s_t)
             # p_log('DEBUG: out1 in batch {}: {} (shape: {})'.format(out1, i, out1.shape))
             # the loss for flow classification when test is different to the one when train
@@ -219,7 +227,7 @@ def get_args():
         default='log_20/log_train.txt',
         help='file name of log'
     )
-    
+
     # training arguments
     parser.add_argument(
         '--batch_size', type=int, default=32,
@@ -259,7 +267,7 @@ def get_args():
     parser.add_argument('--shuffle', action='store_true', help='if shuffle dataset')
     parser.add_argument('--no_bidirectional', action='store_true',
                         help='if bi-RNN')
-    
+    parser.add_argument('--segment_len', type=int, default=4, help='the length of segment')
     # kd args
     parser.add_argument("--kd_alpha", default=0.0, type=float)
     parser.add_argument("--kd_temperature", default=1.0, type=float)
@@ -276,9 +284,10 @@ def get_args():
 def get_model(config_path, model_dir=None, restore_file=None):
     "TODO: load model by means of config"
     # model_type, dim, segment_len, bidirectional,
-
     with open(config_path, 'r') as f:
         config = json.load(f)
+
+    MODEL_CLASS = {'EBSNN_LSTM': EBSNN_LSTM, 'EBSNN_GRU': EBSNN_GRU}[config.model_type]
 
     if model_dir:   # teacher model
         assert restore_file
@@ -296,10 +305,10 @@ def main():
     if args.do_train:
 
         student_model = get_model(args.student_config)
-        teacher_model = get_model(args.teacher_config, args.model_dir, args.restore_file)
+        teacher_model = torch.load(f'{args.model_dir}/checkpoint-best-epoch_21-acc_0.9858.pt')#get_model(args.teacher_config, args.model_dir, args.restore_file)
 
         train_kd(student_model, teacher_model, args)
-    
+
     if args.do_eval:
 
         model = get_model(args.teacher_config, args.model_dir, args.restore_file)
