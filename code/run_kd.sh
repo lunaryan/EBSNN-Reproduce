@@ -6,11 +6,11 @@ labels=reddit,facebook,NeteaseMusic,twitter,qqmail,instagram,weibo,iqiyi,
 labels+=imdb,TED,douban,amazon,youtube,JD,youku,baidu,google,tieba,taobao,bing
 
 
-model_dir=.
+model_dir=../save/teacher
 restore_file=checkpoint-best
 output_dir=../save/student
 
-python run.py \
+python train_kd.py \
     --do_train \
     --data_dir ../data \
     --dataset d1 \

@@ -89,7 +89,7 @@ class PacketDataset(torch.utils.data.Dataset):
 
 
 class FlowDataset(torch.utils.data.Dataset):
-
+    #TODO: fix label2id
     def __init__(self, args, file_type):
 
         self.file_type = file_type

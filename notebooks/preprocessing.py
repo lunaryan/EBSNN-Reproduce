@@ -25,7 +25,7 @@ import glob
 import math
 from sklearn.model_selection import train_test_split
 from bitstring import BitArray
-
+from enum import Enum
 # def calculate_alpha(counter, mode='normal'):
 #     if mode == 'normal':
 #         alpha = torch.tensor(counter, dtype=torch.float32)
@@ -38,6 +38,9 @@ from bitstring import BitArray
 #     # fill all zeros to ones
 #     alpha[alpha==0.] = 1.
 #     return alpha
+#Labels=Enum('Labels', ['reddit','facebook','NeteaseMusic','twitter','qqmail','instagram','weibo','iqiyi','imdb','TED','douban','amazon','youtube','JD','youku','baidu','google','tieba','taobao','bing'], start=0) ##d2
+Labels=Enum('Labels', ['MS-Exchange','facebook','kugou','sinauc','thunder','weibo','aimchat','gmail','mssql','skype','tudou','yahoomail', 'amazon', 'google', 'netflix','sohu','twitter','youku', 'baidu','itunes', 'pplive','spotify','vimeo','youtube','cloudmusic','jd','qq','taobao','voipbuster'], start=0)
+
 def eprint(*args, **kargs):
     print(*args, file=sys.stderr, **kargs)
 
@@ -70,9 +73,9 @@ def process_buffer(buf, max_length=1500):
         payload=int_list[14+4*(U+V):]
         ## the segment generator preprocesses and breaks these subsequences into byte segments with fixed-length N,
         N=4 #4 bytes form a segment
-        payload_seg_num=math.ceil(len(payload)/N)
-        pad_num=payload_seg_num*N-len(payload)
-        payload=payload+[0]*pad_num
+        #payload_seg_num=math.ceil(len(payload)/N)
+        #pad_num=payload_seg_num*N-len(payload)
+        #payload=payload+[0]*pad_num
         ## masked
         ip_id=IPV4_header[4]
         ip_id=BitArray(bin(ip_id)).bin.zfill(8)
@@ -207,19 +210,21 @@ def read_dataset(data_dir, is_flow=True):
         for i, (label, flows) in enumerate(all_flows.items()):
             if len(flows)==0:
                 continue
-            label2id[label] = i
-            id2label[i] = label
+            label2id[label] = Labels[label].value
+            id2label[i] = Labels(i).name
+            lid=Labels[label].value
             flow_feature=extract_flow_feature(flows)
             features.extend(flow_feature)
-            labels.extend([i]*len(flow_feature))
+            labels.extend([lid]*len(flow_feature))
 
         return features, labels, label2id, id2label
 
     for i, class_name in enumerate(os.listdir(data_dir)):
-        label2id[class_name] = i
-        id2label[i] = class_name
+        label2id[class_name] = Labels[class_name].value
+        id2label[i] = Labels(i).name
         class_features = read_class(class_name, data_dir)
-        class_labels = [i for j in range(len(class_features))]
+        lid=Labels[class_name].value
+        class_labels = [lid for j in range(len(class_features))]
         features += class_features
         labels += class_labels
 
@@ -255,7 +260,7 @@ def main(is_flow='flow'):
 
 
 if __name__ == '__main__':
-    #main('flow')
+    main('flow')
     main('packet')
 
 
